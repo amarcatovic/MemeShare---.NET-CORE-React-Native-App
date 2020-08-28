@@ -12,7 +12,9 @@ namespace MemeSharingAPI.Data.Mapper_Profiles
     {
         public MemeProfile()
         {
-            CreateMap<Meme, MemeReadDto>();
+            CreateMap<Meme, MemeReadDto>()
+                .ForMember(dest => dest.MemeType, opt => 
+                    opt.MapFrom(src => src.MemeType.TypeName));
         }
     }
 }
