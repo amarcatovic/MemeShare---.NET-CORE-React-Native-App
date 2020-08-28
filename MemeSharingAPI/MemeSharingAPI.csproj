@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Entity Configurations\" />
     <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
