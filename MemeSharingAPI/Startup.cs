@@ -45,6 +45,8 @@ namespace MemeSharingAPI
             services.AddScoped<IMemeTypeRepository, MemeTypeRepository>();
             services.AddScoped<IMemeRepository, MemeRepository>();
             services.AddScoped<IPhotoRepository, PhotoRepository>();
+
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
