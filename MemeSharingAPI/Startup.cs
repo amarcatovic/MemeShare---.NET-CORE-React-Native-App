@@ -43,6 +43,7 @@ namespace MemeSharingAPI
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IMemeTypeRepository, MemeTypeRepository>();
+            services.AddScoped<IMemeRepository, MemeRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
