@@ -41,6 +41,12 @@ namespace MemeSharingAPI.Controllers
             _cloudinary = new Cloudinary(account);
         }
 
+        [HttpGet("{id}", Name = "GetMemeById")]
+        public async Task<IActionResult> GetMemeById(int id)
+        {
+            return Ok(await _memeRepo.GetMemeById(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMeme([FromForm] MemeCreateDto memeCreateDto)
         {
