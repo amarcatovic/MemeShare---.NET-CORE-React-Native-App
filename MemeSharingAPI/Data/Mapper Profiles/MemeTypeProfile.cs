@@ -13,6 +13,7 @@ namespace MemeSharingAPI.Data.Mapper_Profiles
         public MemeTypeProfile()
         {
             CreateMap<MemeType, MemeTypeReadDto>();
+            CreateMap<MemeType, MemeTypeReadIdDto>();
         }
     }
 }
