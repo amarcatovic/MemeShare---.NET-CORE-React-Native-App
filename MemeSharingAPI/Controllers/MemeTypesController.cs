@@ -36,6 +36,9 @@ namespace MemeSharingAPI.Controllers
         public async Task<IActionResult> GetMemeTypeById(int id)
         {
             var memeTypeFromDb = await _repo.GetMemeTypeById(id);
+            if (memeTypeFromDb == null)
+                return NotFound("Type with that id was not found!");
+
             var memeTypeReadDto = _mapper.Map<MemeTypeReadDto>(memeTypeFromDb);
 
             return Ok(memeTypeReadDto);
