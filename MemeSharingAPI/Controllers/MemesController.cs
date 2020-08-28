@@ -10,6 +10,7 @@ using MemeSharingAPI.Data.Models;
 using MemeSharingAPI.Data.Repositories.Interfaces;
 using MemeSharingAPI.Helpers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -110,6 +111,12 @@ namespace MemeSharingAPI.Controllers
             var memeReadDto = _mapper.Map<MemeReadDto>(meme);
 
             return CreatedAtRoute(nameof(GetMemeById), new { id = meme.Id }, memeReadDto);
+
+        }
+
+        [HttpPatch("{id}")]
+        public async Task PatchMeme(int id, JsonPatchDocument<MemeUpdateLikesDto> patchArray)
+        {
 
         }
     }
