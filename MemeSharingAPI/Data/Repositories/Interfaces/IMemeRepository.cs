@@ -10,5 +10,7 @@ namespace MemeSharingAPI.Data.Repositories.Interfaces
     {
         Task<Meme> GetMemeById(int id);
         Task<IEnumerable<Meme>> GetMemes();
+
+        Task AddMeme(Meme meme);
     }
 }
