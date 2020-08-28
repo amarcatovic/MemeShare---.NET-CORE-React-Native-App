@@ -12,5 +12,6 @@ namespace MemeSharingAPI.Data.Repositories.Interfaces
         Task<IEnumerable<Meme>> GetMemes();
 
         Task AddMeme(Meme meme);
+        Task<bool> Done();
     }
 }
