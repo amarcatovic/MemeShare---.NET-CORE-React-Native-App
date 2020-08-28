@@ -10,5 +10,6 @@ namespace MemeSharingAPI.Data.Repositories.Interfaces
     {
         Task<Photo> GetPhotoById(int id);
         Task AddPhoto(Photo photo);
+        Task<bool> Done();
     }
 }
