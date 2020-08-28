@@ -7,5 +7,9 @@ namespace MemeSharingAPI.Data.Models
 {
     public class MemeType
     {
+        public int Id { get; set; }
+        public string TypeName { get; set; }
+
+        public ICollection<Meme> Memes { get; set; }
     }
 }
