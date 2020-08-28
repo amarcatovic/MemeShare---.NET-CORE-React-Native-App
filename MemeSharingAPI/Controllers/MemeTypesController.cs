@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using MemeSharingAPI.Data.Dtos;
 using MemeSharingAPI.Data.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,10 @@ namespace MemeSharingAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllMemeTypes()
         {
-            var memeTypes = _repo.GetAllTypes();
+            var memeTypes = await _repo.GetAllTypes();
+            var memeTypesReadDto = _mapper.Map<IEnumerable<MemeTypeReadDto>>(memeTypes);
+
+            return Ok(memeTypesReadDto);
         }
 
 
