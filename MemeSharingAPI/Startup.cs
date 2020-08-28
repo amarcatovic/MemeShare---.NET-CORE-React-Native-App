@@ -30,6 +30,11 @@ namespace MemeSharingAPI
 
             services.AddDbContext<MemesContext>(opt => 
                 opt.UseSqlServer(Configuration.GetConnectionString("DevelopmentConnection")));
+
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
