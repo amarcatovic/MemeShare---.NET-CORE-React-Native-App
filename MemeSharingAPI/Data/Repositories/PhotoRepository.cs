@@ -19,7 +19,11 @@ namespace MemeSharingAPI.Data.Repositories
         public async Task AddPhoto(Photo photo)
         {
             await _context.Photos.AddAsync(photo);
-            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> Done()
+        {
+            return (await _context.SaveChangesAsync() >= 0);
         }
 
         public async Task<Photo> GetPhotoById(int id)
