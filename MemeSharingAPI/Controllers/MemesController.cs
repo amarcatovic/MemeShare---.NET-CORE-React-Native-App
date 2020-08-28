@@ -44,7 +44,13 @@ namespace MemeSharingAPI.Controllers
         [HttpGet("{id}", Name = "GetMemeById")]
         public async Task<IActionResult> GetMemeById(int id)
         {
-            return Ok(await _memeRepo.GetMemeById(id));
+            var memeFromDb = await _memeRepo.GetMemeById(id);
+            if (memeFromDb == null)
+                return BadRequest($"Meme with an id = {id} wasn't found!");
+
+            var memeReadDto = _mapper.Map<MemeReadDto>(memeFromDb);
+
+            return Ok(memeReadDto);
         }
 
         [HttpPost]
@@ -92,7 +98,9 @@ namespace MemeSharingAPI.Controllers
             if (!(await _memeRepo.Done()))
                 return BadRequest("There was an error uploading the meme");
 
-            return CreatedAtRoute(nameof(GetMemeById), new { id = meme.Id }, meme);
+            var memeReadDto = _mapper.Map<MemeReadDto>(meme);
+
+            return CreatedAtRoute(nameof(GetMemeById), new { id = meme.Id }, memeReadDto);
 
         }
     }
