@@ -24,12 +24,12 @@ namespace MemeSharingAPI.Data.Repositories
 
         public async Task<Meme> GetMemeById(int id)
         {
-            return await _context.Memes.FindAsync(id);
+            return await _context.Memes.Include(m => m.Photo).Include(m => m.MemeType).SingleOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<IEnumerable<Meme>> GetMemes()
         {
-            return await _context.Memes.ToListAsync();
+            return await _context.Memes.Include(m => m.Photo).Include(m => m.MemeType).ToListAsync();
         }
 
         public async Task<bool> Done()
