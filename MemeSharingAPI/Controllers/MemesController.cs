@@ -114,10 +114,18 @@ namespace MemeSharingAPI.Controllers
 
         }
 
-        [HttpPatch("{id}")]
-        public async Task PatchMeme(int id, JsonPatchDocument<MemeUpdateLikesDto> patchArray)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PatchMeme(int id, MemeUpdateLikesDto memeUpdateLikesDto)
         {
+            var memeFromDb = await _memeRepo.GetMemeById(id);
+            if (memeUpdateLikesDto.Like)
+                memeFromDb.Likes++;
+            else
+                memeFromDb.Likes--;
 
+            await _memeRepo.Done();
+
+            return NoContent();
         }
     }
 }
