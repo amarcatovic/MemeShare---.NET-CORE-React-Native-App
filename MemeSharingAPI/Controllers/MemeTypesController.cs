@@ -21,5 +21,13 @@ namespace MemeSharingAPI.Controllers
             _mapper = mapper;
             _repo = repo;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllMemeTypes()
+        {
+            var memeTypes = _repo.GetAllTypes();
+        }
+
+
     }
 }
