@@ -53,6 +53,15 @@ namespace MemeSharingAPI.Controllers
             return Ok(memeReadDto);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllMemes()
+        {
+            var memes = await _memeRepo.GetMemes();
+            var memesReadDto = _mapper.Map<IEnumerable<MemeReadDto>>(memes);
+
+            return Ok(memesReadDto);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMeme([FromForm] MemeCreateDto memeCreateDto)
         {
