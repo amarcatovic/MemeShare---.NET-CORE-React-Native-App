@@ -9,5 +9,6 @@ namespace MemeSharingAPI.Data.Repositories.Interfaces
     public interface IPhotoRepository
     {
         Task<Photo> GetPhotoById(int id);
+        Task AddPhoto(Photo photo);
     }
 }
