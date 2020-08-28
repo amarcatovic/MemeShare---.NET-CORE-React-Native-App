@@ -17,6 +17,12 @@ namespace MemeSharingAPI.Data.Repositories
             _context = context;
         }
 
+        public async Task AddMeme(Meme meme)
+        {
+            await _context.Memes.AddAsync(meme);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Meme> GetMemeById(int id)
         {
             return await _context.Memes.FindAsync(id);
