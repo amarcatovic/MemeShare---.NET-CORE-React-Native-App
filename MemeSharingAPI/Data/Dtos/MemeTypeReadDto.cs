@@ -9,6 +9,6 @@ namespace MemeSharingAPI.Data.Dtos
     public class MemeTypeReadDto
     {
         public string TypeName { get; set; }
-        public ICollection<Meme> Memes { get; set; }
+        public ICollection<MemeReadDto> Memes { get; set; }
     }
 }
