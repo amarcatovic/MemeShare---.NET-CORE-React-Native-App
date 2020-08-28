@@ -9,6 +9,7 @@ using MemeSharingAPI.Data.Dtos;
 using MemeSharingAPI.Data.Models;
 using MemeSharingAPI.Data.Repositories.Interfaces;
 using MemeSharingAPI.Helpers;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.Options;
 
 namespace MemeSharingAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class MemesController : ControllerBase
