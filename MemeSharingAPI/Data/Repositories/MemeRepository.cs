@@ -20,7 +20,6 @@ namespace MemeSharingAPI.Data.Repositories
         public async Task AddMeme(Meme meme)
         {
             await _context.Memes.AddAsync(meme);
-            await _context.SaveChangesAsync();
         }
 
         public async Task<Meme> GetMemeById(int id)
@@ -31,6 +30,11 @@ namespace MemeSharingAPI.Data.Repositories
         public async Task<IEnumerable<Meme>> GetMemes()
         {
             return await _context.Memes.ToListAsync();
+        }
+
+        public async Task<bool> Done()
+        {
+            return (await _context.SaveChangesAsync() >= 0);
         }
     }
 }
