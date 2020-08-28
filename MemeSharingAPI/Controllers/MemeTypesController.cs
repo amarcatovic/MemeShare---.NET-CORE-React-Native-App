@@ -32,7 +32,7 @@ namespace MemeSharingAPI.Controllers
             return Ok(memeTypesReadDto);
         }
 
-        [HttpGet]
+        [HttpGet("id")]
         public async Task<IActionResult> GetAllMemeTypesWithId()
         {
             var memeTypes = await _repo.GetAllTypes();
