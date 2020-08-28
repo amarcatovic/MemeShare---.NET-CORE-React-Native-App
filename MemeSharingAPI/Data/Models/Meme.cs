@@ -10,6 +10,7 @@ namespace MemeSharingAPI.Data.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public long Likes { get; set; }
+        public DateTime DateAdded { get; set; }
         public Photo Photo { get; set; }
         public int PhotoId { get; set; }
         public MemeType MemeType { get; set; }
