@@ -20,6 +20,9 @@ namespace MemeSharingAPI.Data.Entity_Configurations
             builder.Property(m => m.Likes)
                 .HasDefaultValue(0);
 
+            builder.Property(m => m.DateAdded)
+                .IsRequired();
+
             builder.HasOne(m => m.Photo)
                 .WithMany(p => p.Memes)
                 .HasForeignKey(m => m.PhotoId);
