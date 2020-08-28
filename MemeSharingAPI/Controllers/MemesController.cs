@@ -74,6 +74,20 @@ namespace MemeSharingAPI.Controllers
             if (!(await _photoRepo.Done()))
                 return BadRequest("There was an error uploading the photo");
 
+            var meme = new Meme()
+            {
+                Title = memeCreateDto.Title,
+                DateAdded = memeCreateDto.DateAdded,
+                PhotoId = photo.Id,
+                MemeTypeId = memeCreateDto.MemeTypeId
+            };
+
+            await _memeRepo.AddMeme(meme);
+            if (!(await _memeRepo.Done()))
+                return BadRequest("There was an error uploading the meme");
+
+            return CreatedAtRoute(nameof(GetMemeById), new { id = meme.Id }, meme);
+
         }
     }
 }
