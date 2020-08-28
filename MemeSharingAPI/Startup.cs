@@ -33,7 +33,7 @@ namespace MemeSharingAPI
             services.AddControllers();
 
             services.AddDbContext<MemesContext>(opt => 
-                opt.UseSqlServer(Configuration.GetConnectionString("DevelopmentConnection")));
+                opt.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
