@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using MemeSharingAPI.Data;
+using MemeSharingAPI.Data.Repositories;
+using MemeSharingAPI.Data.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,8 @@ namespace MemeSharingAPI
             );
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IMemeTypeRepository, MemeTypeRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
