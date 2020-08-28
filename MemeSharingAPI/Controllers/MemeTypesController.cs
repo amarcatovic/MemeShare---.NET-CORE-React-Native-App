@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MemeSharingAPI.Controllers
 {
-    [EnableCors("MyPolicy")]
     [Route("api/types")]
     [ApiController]
     public class MemeTypesController : ControllerBase
