@@ -12,6 +12,6 @@ namespace MemeSharingAPI.Data.Dtos
         public long Likes { get; set; }
         public DateTime DateAdded { get; set; }
         public PhotoReadDto Photo { get; set; }
-        public MemeTypeReadDto MemeType { get; set; }
+        public string MemeType { get; set; }
     }
 }
