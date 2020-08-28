@@ -70,7 +70,9 @@ namespace MemeSharingAPI.Controllers
                 PublicId = uploadResult.PublicId
             };
 
-
+            await _photoRepo.AddPhoto(photo);
+            if (!(await _photoRepo.Done()))
+                return BadRequest("There was an error uploading the photo");
 
         }
     }
