@@ -48,7 +48,13 @@ namespace MemeSharingAPI
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                    builder => builder.WithOrigins("http://localhost:44330", "https://memeshare.azurewebsites.net/")
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,16 +64,11 @@ namespace MemeSharingAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("CorsApi");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

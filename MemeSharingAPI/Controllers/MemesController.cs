@@ -17,6 +17,7 @@ using Microsoft.Extensions.Options;
 
 namespace MemeSharingAPI.Controllers
 {
+    [EnableCors("CorsApi")]
     [Route("api/[controller]")]
     [ApiController]
     public class MemesController : ControllerBase
