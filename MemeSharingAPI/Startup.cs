@@ -6,6 +6,7 @@ using AutoMapper;
 using MemeSharingAPI.Data;
 using MemeSharingAPI.Data.Repositories;
 using MemeSharingAPI.Data.Repositories.Interfaces;
+using MemeSharingAPI.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -61,6 +62,8 @@ namespace MemeSharingAPI
             {
                 endpoints.MapControllers();
             });
+
+            PopulateDb.Populate(app);
         }
     }
 }
