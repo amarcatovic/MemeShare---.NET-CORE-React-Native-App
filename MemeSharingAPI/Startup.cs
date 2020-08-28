@@ -44,6 +44,7 @@ namespace MemeSharingAPI
 
             services.AddScoped<IMemeTypeRepository, MemeTypeRepository>();
             services.AddScoped<IMemeRepository, MemeRepository>();
+            services.AddScoped<IPhotoRepository, PhotoRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
