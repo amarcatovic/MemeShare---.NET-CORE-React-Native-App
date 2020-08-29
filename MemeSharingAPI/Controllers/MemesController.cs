@@ -79,9 +79,7 @@ namespace MemeSharingAPI.Controllers
             {
                 var uploadParams = new ImageUploadParams()
                 {
-                    File = new FileDescription(photoFile.FileName, stream),
-                    Transformation = new Transformation()
-                        .Width(850).Height(850).Crop("fill").Gravity("face")
+                    File = new FileDescription(photoFile.FileName, stream)
                 };
 
                 uploadResult = _cloudinary.Upload(uploadParams);
