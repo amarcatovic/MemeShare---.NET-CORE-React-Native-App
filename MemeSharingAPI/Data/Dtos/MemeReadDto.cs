@@ -8,6 +8,7 @@ namespace MemeSharingAPI.Data.Dtos
 {
     public class MemeReadDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public long Likes { get; set; }
         public DateTime DateAdded { get; set; }
