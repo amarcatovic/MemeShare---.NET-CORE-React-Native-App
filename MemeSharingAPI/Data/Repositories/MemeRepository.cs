@@ -29,7 +29,7 @@ namespace MemeSharingAPI.Data.Repositories
 
         public async Task<IEnumerable<Meme>> GetMemes()
         {
-            return await _context.Memes.Include(m => m.Photo).Include(m => m.MemeType).ToListAsync();
+            return await _context.Memes.Include(m => m.Photo).Include(m => m.MemeType).OrderByDescending(m => m.DateAdded).ToListAsync();
         }
 
         public async Task<bool> Done()
