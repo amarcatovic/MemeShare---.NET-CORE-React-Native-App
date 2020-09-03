@@ -10,6 +10,6 @@
 - Azure
 - React Native
 
-[Mobile App code here](https://snack.expo.io/@amar39/27c480)
+[Mobile App code here](https://snack.expo.io/@amar39/memeshare-app-%7C-ios-%7C-android)
 
 
