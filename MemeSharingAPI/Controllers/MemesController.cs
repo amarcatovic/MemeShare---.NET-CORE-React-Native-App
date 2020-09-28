@@ -49,7 +49,7 @@ namespace MemeSharingAPI.Controllers
         {
             var memeFromDb = await _memeRepo.GetMemeById(id);
             if (memeFromDb == null)
-                return BadRequest($"Meme with an id = {id} wasn't found!");
+                return NotFound($"Meme with an id = {id} wasn't found!");
 
             var memeReadDto = _mapper.Map<MemeReadDto>(memeFromDb);
 
